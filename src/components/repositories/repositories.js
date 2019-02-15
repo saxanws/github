@@ -11,12 +11,10 @@ import DeviceHub from "@material-ui/icons/DeviceHub";
 import Visibility from "@material-ui/icons/Visibility";
 
 import { fetchRepositories, updateSearchKey } from "../../actions/index";
+import { troncateTextWithCount } from "../../shared/functions/troncate";
+import RepositoryCard from "../Repository-card/RepositoryCard";
 
 class Repositories extends Component {
-	componentDidUpdate() {
-		this.props.fetchRepositories();
-	}
-
 	componentDidMount = async () => {
 		if (!this.props.login)
 			await this.props.updateSearchKey(this.props.match.params.username);
@@ -29,91 +27,7 @@ class Repositories extends Component {
 			return Object.keys(repositories).map(repository => {
 				return (
 					<Grid item xs={4} key={repositories[repository].id}>
-						<Card>
-							<Grid container spacing={16}>
-								<Grid
-									item
-									xs={2}
-									style={{
-										// borderRight: "solid",
-										borderRightWidth: "thin",
-										backgroundColor: "#FFD53D",
-										color: "#2B3A88"
-									}}
-								>
-									<Grid container justify="center" alignItems="center">
-										<Grid
-											item
-											xs={12}
-											style={{ width: "100%", textAlign: "center" }}
-										>
-											<Visibility
-												style={{
-													verticalAlign: "middle",
-													paddingLeft: "2%",
-													paddingRight: "2%",
-													paddingTop: "10%",
-													paddingBottom: "10%"
-												}}
-											/>
-											{repositories[repository].watchers}
-										</Grid>
-
-										<Grid
-											item
-											xs={12}
-											style={{ width: "100%", textAlign: "center" }}
-										>
-											<Star
-												style={{
-													verticalAlign: "middle",
-													paddingLeft: "2%",
-													paddingRight: "2%",
-													paddingTop: "10%",
-													paddingBottom: "10%"
-												}}
-											/>
-											{repositories[repository].stargazers_count}
-										</Grid>
-										<Grid
-											item
-											xs={12}
-											style={{ width: "100%", textAlign: "center" }}
-										>
-											<DeviceHub
-												style={{
-													verticalAlign: "middle",
-													paddingLeft: "2%",
-													paddingRight: "2%",
-													paddingTop: "10%",
-													paddingBottom: "10%"
-												}}
-											/>
-											{repositories[repository].forks}
-										</Grid>
-										<Grid
-											item
-											xs={12}
-											style={{ width: "100%", textAlign: "center" }}
-										>
-											<Warning
-												style={{
-													verticalAlign: "middle",
-													paddingLeft: "2%",
-													paddingRight: "2%",
-													paddingTop: "10%",
-													paddingBottom: "10%"
-												}}
-											/>
-											{repositories[repository].open_issues_count}
-										</Grid>
-									</Grid>
-								</Grid>
-								<Grid item xs={10}>
-									<div>{repositories[repository].name}</div>
-								</Grid>
-							</Grid>
-						</Card>
+						<RepositoryCard repository={repositories[repository]} />
 					</Grid>
 				);
 			});

@@ -12,7 +12,11 @@ import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import compose from "recompose/compose";
 import { connect } from "react-redux";
-import { fetchUser, updateSearchKey } from "../../actions/index";
+import {
+	fetchUser,
+	updateSearchKey,
+	fetchRepositories
+} from "../../actions/index";
 
 import styles from "./Header-style";
 
@@ -23,10 +27,11 @@ class Header extends Component {
 		this.props.updateSearchKey(key.target.value);
 	};
 
-	searchUser = () => {
+	searchUser = async () => {
 		if (this.props.login === this.props.username) return;
 
-		this.props.fetchUser();
+		await this.props.fetchUser();
+		this.props.fetchRepositories();
 	};
 
 	render() {
@@ -83,6 +88,6 @@ export default compose(
 	withStyles(styles),
 	connect(
 		mapStateToProps,
-		{ updateSearchKey, fetchUser }
+		{ updateSearchKey, fetchUser, fetchRepositories }
 	)
 )(Header);
