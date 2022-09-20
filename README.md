@@ -1,6 +1,6 @@
 # GitHub Searcher
 ## Description
-This app allow user to serach for github user and show information about their repository, followers, organizations and folowing. With this project I was able to practice Redux, how action works, and how to set a global state etc.
+This app allow user to serach for github user and show information about their repository, followers, organizations and folowing. With this project I was able to practice Redux, how action works, navigation, and how to set a global state etc.
 
 ## Screens 
 
@@ -12,7 +12,7 @@ The first page that get loaded when you start the app.
 
 ### Search page
 
-The page that show when we look for a name. It show all the repositories that person has.
+The page that show when we look for a name. It show all the repositories that person has. In this example we search for **Alex** and this screen down here ⤵️ show information about him.
 
 ![Screen Shot 2022-09-20 at 8 03 06 AM](https://user-images.githubusercontent.com/17714218/191278972-c142fe41-1754-4705-ae66-acdc98635289.png)
 
