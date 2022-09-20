@@ -20,6 +20,7 @@ The page that show when we look for a name. It show all the repositories that pe
 
 For this project i use **React.Js**, **Material UI** (by Google), and **Redux**.
 
+
 ### Redux
 
 In this picture 🔽 you will see the state of the global state object which help to keep the state through the whole app the same.
@@ -32,6 +33,7 @@ In this picture 🔽 you will see the state of the global state object which hel
 I see programming like building a structure with lego 🧱, each little block put together to create the final structure. So, I beleive in dividing up my project in smaller components. That helps with debuging 🐛, and reduce the complexity of the application. In this project i brake in multiple smaller compnents how it show in the code down bellow ⬇️.
 
 ![Screen Shot 2022-09-20 at 8 27 07 AM](https://user-images.githubusercontent.com/17714218/191284993-e4da5755-3c7c-46c2-ae42-a66b0e087740.png)
+
 
 
 ## Installation
